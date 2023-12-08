@@ -63,6 +63,21 @@ public class StringOperations {
         }
         return matchingStrings;
     }
+    // Инициализация листа по текстовому файлу и вывод содержимого коллекции на экран
+    public void initializeFromFile(String fileName) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                stringList.add(line);
+            }
+        }
+    }
+
+    public void displayCollection() {
+        for (String str : stringList) {
+            System.out.println(str);
+        }
+    }
 
 
 }
