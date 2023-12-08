@@ -35,5 +35,23 @@ public class StringOperations {
             writer.println("</strings>");
         }
     }
+    // Реверс всех строк, входящих в коллекцию
+    public void reverseStrings() {
+        for (int i = 0; i < stringList.size(); i++) {
+            String reversed = new StringBuilder(stringList.get(i)).reverse().toString();
+            stringList.set(i, reversed);
+        }
+    }
+
+    // Статистика по всем символам, содержащимся в строках коллекции
+    public Map<Character, Integer> characterStatistics() {
+        Map<Character, Integer> charCountMap = new HashMap<>();
+        for (String str : stringList) {
+            for (char c : str.toCharArray()) {
+                charCountMap.put(c, charCountMap.getOrDefault(c, 0) + 1);
+            }
+        }
+        return charCountMap;
+    }
 
 }
