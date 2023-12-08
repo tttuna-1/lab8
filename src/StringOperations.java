@@ -53,5 +53,16 @@ public class StringOperations {
         }
         return charCountMap;
     }
+    // Поиск подстроки в строках коллекции
+    public List<String> findSubstrings(String substring) {
+        List<String> matchingStrings = new ArrayList<>();
+        for (String str : stringList) {
+            if (str.contains(substring)) {
+                matchingStrings.add(str);
+            }
+        }
+        return matchingStrings;
+    }
+
 
 }
