@@ -108,6 +108,67 @@ public class StringOperations {
             stringList.add(str);
         }
     }
+    public static void main(String[] args) {
+        StringOperations stringOps = new StringOperations();
 
+        // Пример использования
+        stringOps.addObject("Hello");
+        stringOps.addObject("World");
+        stringOps.addObject("Hello");
+        stringOps.addObject("Java");
+        stringOps.addObject("Programming");
 
+        // Вывести коллекцию
+        System.out.println("Original Collection:");
+        stringOps.displayCollection();
+
+        // Поиск одинаковых элементов с подсчетом совпадений
+        System.out.println("\nDuplicate Frequencies:");
+        System.out.println(stringOps.findDuplicates());
+
+        // Реверс всех строк
+        stringOps.reverseStrings();
+        System.out.println("\nReversed Collection:");
+        stringOps.displayCollection();
+
+        // Статистика по символам
+        System.out.println("\nCharacter Statistics:");
+        System.out.println(stringOps.characterStatistics());
+
+        // Поиск подстроки
+        System.out.println("\nStrings containing 'll':");
+        System.out.println(stringOps.findSubstrings("ll"));
+
+        // Инициализация из файла
+        try {
+            stringOps.initializeFromFile("input.txt");
+            System.out.println("\nCollection after file initialization:");
+            stringOps.displayCollection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // Сравнение объектов по индексам
+        System.out.println("\nCompare objects at index 0 and 1: " + stringOps.compareInnerObjects(0, 1));
+
+        // Длины строк в упорядоченном виде
+        System.out.println("\nSorted lengths of strings:");
+        System.out.println(stringOps.calculateAndSortLengths());
+
+        // Добавление в динамическую коллекцию
+        stringOps.addDynamic("NewString", 3);
+        System.out.println("\nCollection after dynamic addition:");
+        stringOps.displayCollection();
+
+        // Экспорт в XML
+        try {
+            stringOps.exportToXml("output.xml");
+            System.out.println("\nCollection exported to XML file.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
