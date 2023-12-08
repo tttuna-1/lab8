@@ -25,5 +25,15 @@ public class StringOperations {
         }
         return frequencyMap;
     }
+    // Выгрузка в xml-файл
+    public void exportToXml(String fileName) throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
+            writer.println("<strings>");
+            for (String str : stringList) {
+                writer.println("  <string>" + str + "</string>");
+            }
+            writer.println("</strings>");
+        }
+    }
 
 }
