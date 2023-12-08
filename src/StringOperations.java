@@ -79,5 +79,35 @@ public class StringOperations {
         }
     }
 
+    // Расширить функциональность класса ArrayList методом compareInnerObjects(int firstIndex, int secondIndex)
+    public boolean compareInnerObjects(int firstIndex, int secondIndex) {
+        if (firstIndex >= 0 && firstIndex < stringList.size() &&
+                secondIndex >= 0 && secondIndex < stringList.size()) {
+            return stringList.get(firstIndex).equals(stringList.get(secondIndex));
+        } else {
+            return false;
+        }
+    }
+
+    // Посчитать длины строк входящих в коллекцию, и вывести результат в упорядоченном виде
+    public List<Integer> calculateAndSortLengths() {
+        List<Integer> lengths = new ArrayList<>();
+        for (String str : stringList) {
+            lengths.add(str.length());
+        }
+        Collections.sort(lengths);
+        return lengths;
+    }
+
+    // Реализовать возможность добавления в динамическую коллекцию
+    public void addDynamic(String str, int maxSize) {
+        if (stringList.size() < maxSize) {
+            stringList.add(str);
+        } else {
+            stringList.remove(0);
+            stringList.add(str);
+        }
+    }
+
 
 }
